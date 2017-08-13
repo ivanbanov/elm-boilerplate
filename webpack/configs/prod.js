@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-const PATHS = require('../paths');
+const paths = require('../paths');
 const defaults = require('./defaults');
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
     new UglifyJSPlugin(),
     new ExtractTextPlugin('[name]-[hash].css'),
     new HtmlWebpackPlugin({
-      template: `${PATHS.src}/index.html`,
+      template: `${paths.src}/index.html`,
     }),
   ],
 };

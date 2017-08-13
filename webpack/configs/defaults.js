@@ -5,25 +5,25 @@ const scriptLoader = require('../loaders/script');
 const styleLoader = require('../loaders/style');
 const imageLoader = require('../loaders/image');
 
-const PATHS = require('../paths');
+const paths = require('../paths');
 
 module.exports = {
   entry: [
-    `${PATHS.src}/index.js`,
+    `${paths.src}/index.js`,
   ],
 
   output: {
-    path: PATHS.dist,
-    publicPath: PATHS.public,
+    path: paths.dist,
+    publicPath: paths.public,
   },
 
   resolve: {
     extensions: ['.js', '.elm'],
     alias: {
-      src: PATHS.src,
+      src: paths.src,
     },
     modules: [
-      `${PATHS.root}/node_modules`,
+      `${paths.root}/node_modules`,
     ],
   },
 
@@ -40,7 +40,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${PATHS.src}/index.html`,
+      template: `${paths.src}/index.html`,
     }),
   ],
 };

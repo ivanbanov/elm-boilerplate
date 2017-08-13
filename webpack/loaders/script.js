@@ -1,4 +1,4 @@
-const PATHS = require('../paths');
+const paths = require('../paths');
 
 module.exports = {
   test: /\.jsx?$/,
@@ -7,7 +7,7 @@ module.exports = {
     {
       loader: 'babel-loader',
       options: {
-        extends: `${PATHS.root}/.babelrc`,
+        extends: `${paths.root}/.babelrc`,
       },
     },
   ],

@@ -2,7 +2,7 @@ const args = require('yargs').argv;
 
 const express = require('express');
 const PORT = args.port || process.env.PORT || 3000;
-const PATHS = require('./paths');
+const paths = require('./paths');
 const app = express();
 
 const webpack = require('webpack');
@@ -17,12 +17,12 @@ const middleware = webpackMiddleware(compiler, {
   path: config.output.path,
   publicPath: config.output.publicPath,
   hot: true,
-  contentBase: PATHS.src,
+  contentBase: paths.src,
   stats: 'minimal',
   overlay: true,
 });
 
-const distIndexFile = `${PATHS.dist}/index.html`;
+const distIndexFile = `${paths.dist}/index.html`;
 
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler));

@@ -1,5 +1,7 @@
-const { isEnv } = require('../envs');
-const PATHS = require('../paths');
+const args = require('yargs').argv;
+
+const paths = require('../paths');
+const watch = args.watch || false;
 
 module.exports = {
   test: /\.elm$/,
@@ -23,9 +25,9 @@ module.exports = {
     {
       loader: 'elm-webpack-loader',
       options: {
-        pathToMake: `${PATHS.root}/node_modules/elm/binwrappers/elm-make`,
-        cwd: PATHS.root,
-        forceWatch: isEnv.dev,
+        pathToMake: `${paths.root}/node_modules/elm/binwrappers/elm-make`,
+        cwd: paths.root,
+        forceWatch: watch,
         debug: true,
         warn: true,
         verbose: true,

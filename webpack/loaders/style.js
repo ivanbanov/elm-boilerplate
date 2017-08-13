@@ -1,5 +1,4 @@
 const { isEnv } = require('../envs');
-const PATHS = require('../paths').PATHS;
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
