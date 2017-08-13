@@ -6,6 +6,7 @@ const ENVS = {
   prod: 'prod',
 };
 const ENV = args.env || process.env.NODE_ENV || ENVS.dev;
+const PORT = args.port || process.env.PORT || 3000;
 
 /*
  * Generate constants and validation for each enviroment
@@ -35,4 +36,5 @@ module.exports = {
   ENVS,
   isEnv,
   ifEnv,
+  PORT,
 };

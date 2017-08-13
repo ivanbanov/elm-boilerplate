@@ -1,16 +1,21 @@
 const args = require('yargs').argv;
 
 const express = require('express');
-const { PORT } = require('./server-config');
+const { PORT } = require('./envs');
 const paths = require('./paths');
 const app = express();
 
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const config = require('./config');
 const compiler = webpack(config);
+
+compiler.apply(new DashboardPlugin());
+
+console.log('xxxxxxx')
 
 const middleware = webpackMiddleware(compiler, {
   color: true,
@@ -23,6 +28,7 @@ const middleware = webpackMiddleware(compiler, {
 });
 
 const distIndexFile = `${paths.dist}/index.html`;
+
 
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler));

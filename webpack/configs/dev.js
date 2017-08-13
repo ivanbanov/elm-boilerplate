@@ -3,7 +3,7 @@ const args = require('yargs').argv;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const { PORT } = require('../server-config');
+const { PORT } = require('../envs');
 const watch = args.watch || false;
 
 module.exports = {
