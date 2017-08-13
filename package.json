@@ -2,7 +2,7 @@
   "name": "elm-poc",
   "author": "Ivan Banov <ivanbanov@gmail.com>",
   "scripts": {
-    "start": "node ./webpack/server.js",
+    "start": "node ./webpack/server.js --watch",
     "build": "node ./node_modules/webpack/bin/webpack.js --config ./webpack/config.js --progress --colors"
   },
   "devDependencies": {

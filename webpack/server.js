@@ -1,7 +1,7 @@
 const args = require('yargs').argv;
 
 const express = require('express');
-const PORT = args.port || process.env.PORT || 3000;
+const { PORT } = require('./server-config');
 const paths = require('./paths');
 const app = express();
 
@@ -34,7 +34,3 @@ app.get('*', (req, res) => {
 app.listen(PORT, '0.0.0.0', (err) => {
   console.info(`🌎  Listening on port ${PORT}`);
 });
-
-module.exports = {
-  PORT
-};

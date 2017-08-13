@@ -3,13 +3,13 @@ const args = require('yargs').argv;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const SERVER_PORT = args.port || process.env.PORT || 3000;
+const { PORT } = require('../server-config');
 const watch = args.watch || false;
 
 module.exports = {
   entry: (
     watch
-      ? [`webpack-hot-middleware/client?http://localhost:${SERVER_PORT}/`]
+      ? [`webpack-hot-middleware/client?http://localhost:${PORT}/`]
       : []
   ),
 
